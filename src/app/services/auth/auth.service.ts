@@ -22,14 +22,8 @@ export class AuthService {
       password
     }, httpOptions);
   }
-  register(username: string, email: string, password: string,roles:Role[]): Observable<any> {
-    return this.http.post("localhost:8080/" + 'signup', {
-      username,
-      email,
-      password,
-      roles
-    }, httpOptions);
-  }
+
+  
 
 
 }
