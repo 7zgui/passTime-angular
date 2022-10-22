@@ -1,8 +1,8 @@
-<form action="" class="log-in" autocomplete="off"> 
+<form [formGroup]="signupForm" action="" class="log-in" autocomplete="off"> 
     <h4>We are <span>rectMe V1.0</span></h4>
     <p>Meow welcoming you </p>
     <div class="floating-label">
-      <input placeholder="Email" type="email" name="email" id="email" autocomplete="off">
+      <input [formControl]="signupForm.controls.email" placeholder="Email" type="email" name="email" id="email" autocomplete="off">
       <label for="email">Email:</label>
       <!-- <div class="icon">
             <svg enable-background="new 0 0 100 100" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
@@ -17,8 +17,8 @@
       </div> -->
     </div>
     <div class="floating-label">
-      <input placeholder="username" type="username" name="username" id="username" autocomplete="off">
-      <label for="email">Username:</label>
+      <input [formControl]="signupForm.controls.username" placeholder="username" type="username" name="username" id="username" autocomplete="off">
+      <label for="username">Username:</label>
       <div class="icon">
             <!-- <svg enable-background="new 0 0 100 100" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
                 <style type="text/css">
@@ -33,7 +33,7 @@
     </div>
     
     <div class="floating-label">
-      <input placeholder="Password" type="password" name="password" id="password" autocomplete="off">
+      <input [formControl]="signupForm.controls.password" placeholder="Password" type="password" name="password" id="password" autocomplete="off">
       <label for="password">Password:</label>
       <div class="icon">
         <!-- <svg enable-background="new 0 0 24 24" version="1.1" viewBox="0 0 24 24" xml:space="preserve"              xmlns="http://www.w3.org/2000/svg">
@@ -49,5 +49,5 @@
       </div>
       
     </div>
-    <button type="submit" onClick="return false;">Sign up</button>
+    <button type="submit" (click)="submit()">Sign up</button>
   </form>
