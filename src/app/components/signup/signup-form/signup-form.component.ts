@@ -20,7 +20,7 @@ export class SignupFormComponent implements OnInit {
   }
 
   submit(){
-    
+    console.log(this.signupForm.controls)
   }
 
 }

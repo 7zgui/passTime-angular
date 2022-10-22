@@ -10,13 +10,15 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignupFormComponent } from './components/signup/signup-form/signup-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     SignupPageComponent,
-    LoginPageComponent
+    SignupFormComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
