@@ -1,6 +1,6 @@
 import { ERole } from "../enum/erole.enum"
 
-export interface Role {
-    name:string,
-    eRole:ERole
+export class Role {
+    name?:string
+    eRole?:ERole
 }
