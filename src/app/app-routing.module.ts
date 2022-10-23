@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
 
 const routes: Routes = [
-  { path: 'auth/signup', component: SignupPageComponent }
+  { path: 'signup', 
+    loadChildren:()=>import('./modules/signup/signup.module').then(m=>m.SignupModule)
+  },
+  { path: 'login',
+    loadChildren:()=>import('./modules/login/login.module').then(m=>m.LoginModule)
+  }
 ];
 
 @NgModule({
