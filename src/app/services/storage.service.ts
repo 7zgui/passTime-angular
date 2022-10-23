@@ -12,22 +12,23 @@ export class StorageService {
     window.sessionStorage.clear();
   }
 
-  public saveToken(user: any): void {
+  public saveUser(user: any): void {
     window.sessionStorage.removeItem(USER_KEY);
+    window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
-  public getToken(): any {
-    const token = window.sessionStorage.getItem(USER_KEY);
-    if (token) {
-      return JSON.parse(token);
+  public getUser(): any {
+    const user = window.sessionStorage.getItem(USER_KEY);
+    if (user) {
+      return JSON.parse(user);
     }
 
     return {};
   }
 
   public isLoggedIn(): boolean {
-    const token = window.sessionStorage.getItem(USER_KEY);
-    if (token) {
+    const user = window.sessionStorage.getItem(USER_KEY);
+    if (user) {
       return true;
     }
 
