@@ -11,6 +11,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from "src/environments/environment";
+import { httpInterceptorProviders } from './_helpers/http.interceptor';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 
@@ -31,7 +33,7 @@ import { environment } from "src/environments/environment";
     }),
     
   ],
-  providers: [],
+  providers: [httpInterceptorProviders,AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

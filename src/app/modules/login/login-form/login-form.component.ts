@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -20,24 +21,25 @@ export class LoginFormComponent implements OnInit {
     password:new FormControl(""),
   })
 
-  constructor(private storageService  : StorageService,private authService : AuthService) { }
+  constructor(private storageService  : StorageService,private authService : AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    if (this.storageService.isLoggedIn()) {
+    if (this.authService.isLoggedIn()) {
       this.isLoggedIn = true;
+      this.router.navigate(['home']);
     }
   }
 
-  submit(){
-    this.authService.login("mod","123456789").subscribe(
+  submit(username:string,password:string){
+    this.authService.login(username,password).subscribe(
       res=>{
         this.storageService.saveUser(res);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.storageService.getUser().roles;
         console.log(this.roles)
-        // todo 
-        this.reloadPage();
+        this.router.navigate(['login']);
+       
       },
       error=>{
         console.log(error)
@@ -47,8 +49,6 @@ export class LoginFormComponent implements OnInit {
     );
   }
 
-  reloadPage(): void {
-    window.location.reload();
-  }
+  
 
 }
