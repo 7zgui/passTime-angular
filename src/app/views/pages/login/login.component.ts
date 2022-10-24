@@ -29,22 +29,23 @@ export class LoginComponent {
   }
 
   submit(username:any,password:any){
-    this.authService.login(username,password).subscribe(
-    res=>{
-      this.storageService.saveUser(res);
-      this.isLoginFailed = false;
-      this.isLoggedIn = true;
-      this.roles = this.storageService.getUser().roles;
-      console.log(this.roles)
-      this.router.navigate(['dashbord']);
+    // this.authService.login(username,password).subscribe(
+    // res=>{
+    //   this.storageService.saveUser(res);
+    //   this.isLoginFailed = false;
+    //   this.isLoggedIn = true;
+    //   this.roles = this.storageService.getUser().roles;
+    //   console.log(this.roles)
+    //   this.router.navigate(['dashbord']);
       
-    },
-    error=>{
-      console.log(error)
-      this.errorMessage = error.error.message;
-      this.isLoginFailed = true;
-    }
-    );
+    // },
+    // error=>{
+    //   console.log(error)
+    //   this.errorMessage = error.error.message;
+    //   this.isLoginFailed = true;
+    // }
+    // );
+    this.router.navigate(['dashbord']);
   }
 
 }
