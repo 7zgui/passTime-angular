@@ -5,20 +5,22 @@
         <c-card-group>
           <c-card class="p-4">
             <c-card-body>
-              <form cForm>
+              <form #username [formGroup]="loginForm" cForm>
                 <h1>Login</h1>
                 <p class="text-medium-emphasis">Sign In to your account</p>
                 <c-input-group class="mb-3">
                   <span cInputGroupText>
                     <svg cIcon name="cilUser"></svg>
                   </span>
-                  <input autoComplete="username" cFormControl placeholder="Username" />
+                  <input [formControl]="loginForm.controls.username" autoComplete="username" cFormControl placeholder="Username" />
                 </c-input-group>
                 <c-input-group class="mb-4">
                   <span cInputGroupText>
                     <svg cIcon name="cilLockLocked"></svg>
                   </span>
                   <input
+                    #password
+                    [formControl]="loginForm.controls.password"
                     autoComplete="current-password"
                     cFormControl
                     placeholder="Password"
@@ -27,7 +29,7 @@
                 </c-input-group>
                 <c-row>
                   <c-col xs="6">
-                    <button cButton class="px-4" color="primary">
+                    <button type="submit" (click)="submit(loginForm.controls.username.value,loginForm.controls.password.value)"  cButton class="px-4" color="primary">
                       Login
                     </button>
                   </c-col>
@@ -46,9 +48,9 @@
                 <h2>Sign up</h2>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua.
+                  tempor incididunt ut labore et dolore magna aliqua axa.
                 </p>
-                <button [active]="true" cButton class="mt-3" color="primary" routerLink="/register">
+                <button [active]="true" cButton class="mt-3" color="primary" >
                   Register Now!
                 </button>
               </div>
