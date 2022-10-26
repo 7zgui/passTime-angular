@@ -25,6 +25,7 @@ export class LoginComponent {
   constructor(private storageService  : StorageService,private authService : AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    console.log(this.storageService.getUser())
     
   }
 
