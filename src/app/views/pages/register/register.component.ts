@@ -14,12 +14,24 @@ export class RegisterComponent {
     email:new FormControl(""),
     username:new FormControl(""),
     password:new FormControl(""),
+    role:new FormControl("")
   })
 
   constructor(private authService : AuthService, private router: Router) { }
 
-  submit(){
-    console.log(this.signupForm.controls)
+  submit(username:any,email:any,role:any,password:any){
+    this.authService.register(username,email,role,password).subscribe(
+      res=>{
+        
+        console.log(res)
+        //this.router.navigate(['login']);
+        
+      },
+      error=>{
+        console.log(error)
+        
+      }
+      );
   }
 
 }

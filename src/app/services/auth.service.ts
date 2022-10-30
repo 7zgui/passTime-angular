@@ -34,13 +34,16 @@ export class AuthService {
       );
     }
   
-    register(username: string, email: string, password: string): Observable<any> {
+    register(username: string, email: string, password: string,role:string): Observable<any> {
+      let roles = [] ;
+      roles.push(role);
       return this.http.post(
         environment.api + '/auth/signup',
         {
           username,
           email,
           password,
+          roles
         },
         httpOptions
       );
